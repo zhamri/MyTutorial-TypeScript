@@ -10,10 +10,9 @@ yarn-error.log*
 
 .vscode/*
 
-# IDEs and editors
-.idea/
-
 # System files
 .DS_Store
 Thumbs.db
 
+# IDEs and editors
+/.idea/
