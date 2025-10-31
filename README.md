@@ -14,3 +14,12 @@
 | **Instance** | Inside class, outside methods       | Each object (instance) | `this.variableName`      | `this.name`              |
 | **Static**   | Inside class, with `static` keyword | Class itself (shared)  | `ClassName.variableName` | `Student.university`     |
 
+
+## Declaration Keyword
+TypeScript (like modern JavaScript) has three main ways to declare variables:
+
+| Keyword | Description                                                         | Scope    | Can Reassign? | Example              |
+| ------- | ------------------------------------------------------------------- | -------- | ------------- | -------------------- |
+| `var`   | Function-scoped, older syntax. Avoid using it in modern TypeScript. | Function | ✅ Yes         | `var name = "Ali";`  |
+| `let`   | Block-scoped variable. Preferred for values that can change.        | Block    | ✅ Yes         | `let counter = 0;`   |
+| `const` | Block-scoped constant. Cannot be reassigned after declaration.      | Block    | ❌ No          | `const pi = 3.1416;` |
