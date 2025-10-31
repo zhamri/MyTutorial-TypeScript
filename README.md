@@ -23,3 +23,9 @@ TypeScript (like modern JavaScript) has three main ways to declare variables:
 | `var`   | Function-scoped, older syntax. Avoid using it in modern TypeScript. | Function | ✅ Yes         | `var name = "Ali";`  |
 | `let`   | Block-scoped variable. Preferred for values that can change.        | Block    | ✅ Yes         | `let counter = 0;`   |
 | `const` | Block-scoped constant. Cannot be reassigned after declaration.      | Block    | ❌ No          | `const pi = 3.1416;` |
+
+| Keyword   | Scope    | Can Reassign? | Re-Declare? | Common Use                     |
+| --------- | -------- | ------------- | ----------- | ------------------------------ |
+| **const** | Block    | ❌ No          | ❌ No        | Constants or fixed references  |
+| **let**   | Block    | ✅ Yes         | ❌ No        | Values that change             |
+| **var**   | Function | ✅ Yes         | ✅ Yes       | Legacy JS (avoid in modern TS) |
