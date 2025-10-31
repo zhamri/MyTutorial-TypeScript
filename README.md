@@ -1,47 +1,74 @@
-## 1️⃣ Single-line comment
-Use // to write a comment that ends at the end of the line.
+## Why It’s Optional
+1. In TypeScript, the semicolon (;) is not compulsory — but it’s strongly recommended for consistency and safety.
+2. TypeScript (like JavaScript) uses a feature called Automatic Semicolon Insertion (ASI).
+3. That means the compiler automatically adds semicolons where it thinks they should go.
+4. Even though optional, omitting semicolons can cause unexpected errors in certain cases.
 
+## Example 1: Array Misinterpretation
 ```typescript
-// This is a single-line comment
-let firstName = "Zhamri"; // You can also write it after code
+let a = 5
+let b = 10
+let result = a + b
+[1, 2, 3].forEach(num => console.log(num))
 ```
->Used for: short explanations, reminders, or disabling one line of code.
-
-## 2️⃣ Multi-line (Block) comment
-Use `/* ... */` for longer or multi-line explanations.
-
+### ❌ Problem
+This throws an error because TypeScript interprets it as:
 ```typescript
-/*
- This is a multi-line comment.
- You can write many lines here.
- Useful for describing logic or sections of code.
-*/
-let course = "Web Engineering";
+let result = a + b[1, 2, 3].forEach(num => console.log(num))
 ```
->Used for: longer descriptions, temporarily commenting out multiple lines.
-
-
-## 3️⃣ Documentation comment (JSDoc-style)
-1. TypeScript supports JSDoc comments for documenting functions, classes, and interfaces.
-2. They start with `/**` and can include special tags.
-
+and you’ll get:
 ```typescript
-/**
- * Calculates total marks for a student.
- * @param marks - Array of marks
- * @returns The sum of all marks
- */
-function getTotal(marks: number[]): number {
-  return marks.reduce((a, b) => a + b, 0);
+TypeError: Cannot read properties of undefined (reading 'forEach')
+```
+
+## Example 2 – Immediately Invoked Function Expressions (IIFE)
+```typescript
+let x = 5
+(function() {
+  console.log("Running IIFE")
+})()
+```
+
+### ❌ Problem
+Without the semicolon, it’s parsed as:
+```typescript
+let x = 5(function(){ ... })()
+```
+and you’ll get:
+```typescript
+TypeError: 5 is not a function
+```
+
+## Example 3 – Return Statement Pitfall
+```typescript
+function getValue() {
+  return
+  {
+    value: 10
+  }
 }
+console.log(getValue())
 ```
->Used for: generating documentation, tooltips, and IntelliSense hints in editors (like VS Code).
 
+### ❌ Problem
+The newline after return makes ASI insert a semicolon immediately after it:
+```typescript
+return;  // inserted here
+{ value: 10 }  // unreachable
+```
+Output:
+```typescript
+undefined
+```
 
-## Summary
-| Type                      | Syntax           | Purpose                                |
-| ------------------------- | ---------------- | -------------------------------------- |
-| **Single-line**           | `// comment`     | Short, quick note                      |
-| **Multi-line**            | `/* comment */`  | Long or multi-line explanation         |
-| **Documentation (JSDoc)** | `/** comment */` | Function/class/interface documentation |
+## Example 4 – Chained Function Calls
+```typescript
+getData()
+.then(() => console.log("Done"))
+.catch(() => console.log("Error"))
+[1, 2, 3].forEach(x => console.log(x))
+```
+
+### ❌ Problem
+No semicolon after `.catch(...)` → the `[1,2,3]` is treated as part of the chain.
 
