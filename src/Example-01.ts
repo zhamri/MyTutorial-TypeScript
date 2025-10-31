@@ -7,3 +7,7 @@
 function add(a: number, b: number): number {
     return a + b;
 }
+
+/**
+ * ✅ When you hover over add() in VS Code, it shows the description and parameter info.
+ */
