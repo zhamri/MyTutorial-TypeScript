@@ -3,7 +3,7 @@ Use // to write a comment that ends at the end of the line.
 
 ```typescript
 // This is a single-line comment
-let name = "Zhamri"; // You can also write it after code
+let firstName = "Zhamri"; // You can also write it after code
 ```
 >Used for: short explanations, reminders, or disabling one line of code.
 
