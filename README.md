@@ -1,9 +1,4 @@
-## How to compile
+## API
 ```aiignore
-tsc helloWorld.ts
-```
-
-## How to run
-```aiignore
-node helloWorld
+https://jsonplaceholder.typicode.com/users
 ```
