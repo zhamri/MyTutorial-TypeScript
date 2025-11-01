@@ -1,9 +1,7 @@
-// User login status
+// Loop through an array of names
 
-let isLoggedIn: boolean = false;
+let names: string[] = ["Ali", "Siti", "John"];
 
-if (isLoggedIn) {
-    console.log("Welcome back!");
-} else {
-    console.log("Please log in.");
+for (let i = 0; i < names.length; i++) {
+    console.log("Student:", names[i]);
 }
