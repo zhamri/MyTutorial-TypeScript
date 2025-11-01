@@ -1,10 +1,11 @@
-// Calculate the sum of an array
+// Sum until a number exceeds 100
 
-let numbers: number[] = [10, 20, 30, 40];
 let sum: number = 0;
+let num: number = 1;
 
-for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+while (sum <= 100) {
+    sum += num;
+    num++;
 }
 
-console.log("Total sum:", sum);
+console.log("Final sum:", sum);

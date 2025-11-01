@@ -1,7 +1,16 @@
-// Loop through an array of names
+// Countdown from 5 to 1
 
-let names: string[] = ["Ali", "Siti", "John"];
+let count: number = 5;
 
-for (let i = 0; i < names.length; i++) {
-    console.log("Student:", names[i]);
+while (count > 0) {
+    console.log("Countdown:", count);
+    count--;
 }
+
+/*
+Countdown: 5
+Countdown: 4
+Countdown: 3
+Countdown: 2
+Countdown: 1
+ */

@@ -1,5 +1,8 @@
 // Print numbers from 1 to 5
 
-for (let i = 1; i <= 5; i++) {
+let i: number = 1;
+
+while (i <= 5) {
     console.log("Number:", i);
+    i++;
 }
